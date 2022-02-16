@@ -31,7 +31,7 @@ def read_graphs_in_networkx(infile,labels=True, num_graphs_to_read=10000000):
                     node_label = node_label_dict[node_label]
                     node_label_freq_dict[node_label] +=1
 
-                    g.node[i]["node_label"] = node_label
+                    g.nodes[i]["node_label"] = node_label
             
 
             num_edges = int(data[index])
@@ -78,7 +78,7 @@ def save_graphs_nx(graphs,fname,node_label_dict,edge_label_dict):
         f.write("#"+str(ct)+"\n")
         f.write(str(graph.number_of_nodes()) +"\n")
         for i in range(0,graph.number_of_nodes()):
-            f.write(str(node_label_dict[int(graph.node[i]["node_label"])])+"\n")
+            f.write(str(node_label_dict[int(graph.nodes[i]["node_label"])])+"\n")
             
         f.write(str(graph.number_of_edges())+"\n")
         for edge in graph.edges:
